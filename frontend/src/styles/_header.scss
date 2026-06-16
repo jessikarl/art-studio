@@ -1,0 +1,40 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #a8947b;
+    color: black;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .header-logo {
+        font-size: 2rem;
+        font-weight: bold;
+        font-style: italic;
+        font-family: 'playfair-display', serif;
+        letter-spacing: 1px;
+    }
+
+    .header-nav {
+        justify-content: space-evenly;
+        gap: 20px;
+
+
+        .nav-links {
+            font-size: 1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            list-style: none;
+            
+            &:hover {
+                color: #a8947b;
+            }
+        }
+    }
+
+}
