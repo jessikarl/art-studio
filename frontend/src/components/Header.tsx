@@ -9,7 +9,7 @@ export const Header = () => {
 
           <div className="header-logo">
             <Link to="/" className="logo-link">
-              Camilla Karin Studio
+              Camilla Karin <span>Studio</span>
             </Link>
           </div>
           
