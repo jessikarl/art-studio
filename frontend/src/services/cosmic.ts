@@ -5,18 +5,15 @@ export const cosmic = createBucketClient({
   readKey: import.meta.env.VITE_BUCKET_READ_KEY || "",
 });
 
-export interface ArtGallery {
+export interface Artwork {
   id: string;
   title: string;
   slug: string;
-  type: string;
-  created_at: string;
-  modified_at: string;
   metadata: {
     description?: string;
     price?: number;
     dimensions?: string;
-    technique?: string;
+    medium?: string;
     image?: {
       url: string;
       imgix_url: string;
@@ -24,4 +21,3 @@ export interface ArtGallery {
     is_available?: boolean;
   };
 }
-
