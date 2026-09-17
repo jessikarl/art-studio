@@ -7,6 +7,7 @@ import { About } from "./pages/About";
 import { Gallery } from "./pages/Gallery";
 import { Paintings } from "./pages/Paintings";
 import { Prints } from "./pages/Prints";
+import { Cart } from "./components/Cart";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/prints",
         element: <Prints />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { cosmic, type Artwork } from '../services/cosmic';
+import { useCart } from './../context/cartContext';
 import '../styles/_gallery.scss';
 
 export const Art = () => {
   const [artworks, setArtworks] = useState<Artwork[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const getArtworks = async () => {
@@ -57,6 +59,10 @@ export const Art = () => {
               <span className="art-price">{art.metadata.price} kr</span>
             )}
           </div>
+
+          <div className='art-cart-button'>
+            <button onClick={() => addToCart(art)}>Add to Cart</button>
+          </div>  
         </div>
       ))}
     </section>
