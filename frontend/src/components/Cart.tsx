@@ -1,4 +1,5 @@
 import { useCart } from '../context/cartContext';
+import '../styles/_cart.scss';
 
 export const Cart = () => {
   const { cart, removeFromCart, total } = useCart();

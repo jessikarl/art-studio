@@ -1,0 +1,125 @@
+.cart-empty,
+.cart-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 1.25rem;
+    min-height: calc(100vh - 160px);
+    flex: 1 0 auto;
+    color: #111111;
+
+    h2 {
+        font-family: 'playfair-display', serif;
+        font-style: italic;
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 400;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #dcdcdc;
+        padding-bottom: 1.5rem;
+    }
+}
+
+.cart-empty {
+    p {
+        font-size: 1rem;
+        color: #666666;
+    }
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-bottom: 1px solid #eaeaea;
+
+    @media (min-width: 768px) {
+        gap: 3rem;
+    }
+
+    .cart-item-image {
+        width: 90px;
+        height: 110px;
+        object-fit: cover;
+        background-color: #f9f9f9;
+    }
+
+    .cart-item-info {
+        flex: 1;
+
+        h4 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #111111;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #666666;
+        }
+    }
+
+    .remove-btn {
+        background: none;
+        border: none;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #888888;
+        transition: color 0.3s ease;
+        padding: 0.5rem;
+
+        &:hover {
+            color: #111111;
+        }
+    }
+}
+
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #fdfbf7;
+    padding: 2rem;
+    border-radius: 2px;
+
+    @media (min-width: 768px) {
+        align-items: flex-end;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin: 0;
+
+        @media (max-width: 767px) {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #dcdcdc;
+            padding-bottom: 1rem;
+        }
+    }
+
+    .checkout-btn {
+        background-color: #111111;
+        color: #ffffff;
+        border: none;
+        padding: 1.25rem 3rem;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #a8947b;
+        }
+    }
+}
