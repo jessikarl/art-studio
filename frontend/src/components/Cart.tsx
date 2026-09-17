@@ -12,8 +12,28 @@ export const Cart = () => {
     );
   }
 
-  const handleCheckout = () => {
-    console.log("Ready to checkout! Items:", cart);
+  const handleCheckout = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ items: cart }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const { url } = await response.json();
+
+      if (url) {
+        window.location.href = url;
+      }
+    } catch (error) {
+      console.error('Checkout failed', error);
+    }
   };
 
   return (
