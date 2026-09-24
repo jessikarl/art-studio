@@ -7,21 +7,17 @@ export const Home = () => {
       <div className="home-container">
         <div className="hero-container">
 
-          <h1>Camilla Karin Studio</h1>
+          <h1>Camilla Karin <span>Studio</span></h1>
           <p>Art for the soul</p>
 
-          <div className="galleryButtonContainer">
-            <div className="galleryButton">
-                <Link to="/gallery" className="galleryButtonLink">
+          <div className="gallery-button-container">
+            <div className="gallery-button">
+                <Link to="/gallery" className="gallery-button-link">
                     Explore the Gallery
                 </Link>
             </div>
           </div>
 
-        </div>
-
-        <div className="best-sellers-container">
-          <h2>Best Sellers</h2>
         </div>
         
         <div className="about-short-container">

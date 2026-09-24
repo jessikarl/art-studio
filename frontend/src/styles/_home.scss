@@ -2,16 +2,97 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    width: 100%;
     flex: 1 0 auto;
-    text-align: center;
-    gap: 2.5rem;
-    padding: 2rem 1.25rem;
-    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'playfair-display', serif;
 
-    @media (min-width: 768px) {
-        gap: 4rem;
-        padding: 4rem 2rem;
+    .hero-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50vh;
+
+        background-image: url('../assets/henrik-donnestad-HO1Evlp1p1o-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;    
+
+        h1 {
+            font-style: italic;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            color: #000000;
+            margin: 0;
+            text-align: center;
+            text-shadow: 1px 1px;
+
+            span {
+                color: #a8947b;
+            }
+        }
+
+        p {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            font-weight: 300;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0 0 1rem 0;
+        }
+    }
+
+    .gallery-button-container {
+        .gallery-button-link {
+            display: inline-block;
+            background-color: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: #a8947b;
+            }
+        }
+    }
+
+    .about-short-container {
+        max-width: 800px;
+        width: 100%;
+        text-align: center;
+        margin: 4rem 4rem;
+
+        @media (min-width: 768px) {
+            padding: 0rem 2rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #444444;
+            margin-bottom: 2.5rem;
+        }
+
+        .about-link {
+            color: #000000;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 4px;
+            transition: color 0.2s ease, border-color 0.2s ease;
+
+            &:hover {
+                color: #a8947b;
+                border-bottom-color: #a8947b;
+            }
+        }
     }
 }
