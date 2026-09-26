@@ -5,9 +5,9 @@ import { Contact } from "./pages/Contact";
 import { NotFound } from "./pages/NotFound";
 import { About } from "./pages/About";
 import { Gallery } from "./pages/Gallery";
-import { Paintings } from "./pages/Paintings";
-import { Prints } from "./pages/Prints";
+import { Product } from "./pages/Product";
 import { Cart } from "./components/Cart";
+
 
 export const router = createBrowserRouter([
   {
@@ -32,12 +32,8 @@ export const router = createBrowserRouter([
         element: <Gallery />,
       },
       {
-        path: "/paintings",
-        element: <Paintings />,
-      },
-      {
-        path: "/prints",
-        element: <Prints />,
+        path: "/product/:id",
+        element: <Product />,
       },
       {
         path: "/cart",
