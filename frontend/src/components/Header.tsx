@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { useAuth } from "../context/authContext.tsx";
 import "../styles/_header.scss";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, isAuthenticated, isLoading, logout } = useAuth();
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
@@ -33,9 +35,24 @@ export const Header = () => {
             <Link to="/cart" className="cart-link" onClick={closeMenu}>
               <span className="cart-icon">Cart</span>
             </Link>
-            <Link to="/account" className="account-link" onClick={closeMenu}>
-              <span className="account-icon">Sign In</span>
-            </Link>
+
+            {isLoading ? (
+              <span className="account-link"><span className="account-icon">...</span></span>
+            ) : isAuthenticated ? (
+              <>
+                <Link to="/account" className="account-link" onClick={closeMenu}>
+                  <span className="account-icon">{user?.full_name}</span>
+                </Link>
+                <button className="account-link" onClick={() => { logout(); }}>
+                  <span className="account-icon">Logout</span>
+                </button>
+              </>
+            
+            ) : (
+              <a href="http://localhost:3000/api/auth/google" className="account-link" onClick={closeMenu}>
+                <span className="account-icon">Sign In</span>
+              </a>
+            )}
 
             {/* mobile nav button */}
             <button type="button" className="mobile-menu-button" onClick={toggleMenu} aria-label="Toggle navigation menu" aria-expanded={isOpen}>
@@ -59,9 +76,20 @@ export const Header = () => {
             <li>
               <Link to="/contact" onClick={closeMenu}>Contact</Link>
             </li>
+            
             <li>
-              <Link to="/account" onClick={closeMenu}>Sign In</Link>
-            </li>
+              {isLoading ? (
+                <span>Loading...</span>
+              ) : isAuthenticated ? (
+                <>
+                  <Link to="/account" onClick={closeMenu}>My Account</Link>
+
+                  <button onClick={() => { logout(); closeMenu(); }}>Logout</button>
+                </>
+              ) : (
+                <a href="http://localhost:3000/api/auth/google" onClick={closeMenu}>Sign In</a>
+              )}
+            </li> 
           </ul>
         </nav>
       </header>

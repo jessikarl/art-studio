@@ -44,7 +44,7 @@ app.get('/api/auth/status', (req, res) => {
   }
 });
 
-app.get('/api/auth/logout', (req, res, next) => {
+app.post('/api/auth/logout', (req, res, next) => {
   req.logout((err) => {
     if (err) return next(err);
     res.json({ message: 'Logged out successfully' });
