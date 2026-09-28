@@ -39,14 +39,14 @@ export const Header = () => {
             {isLoading ? (
               <span className="account-link"><span className="account-icon">...</span></span>
             ) : isAuthenticated ? (
-              <>
+              <div className="auth-container">
                 <Link to="/account" className="account-link" onClick={closeMenu}>
-                  <span className="account-icon">{user?.full_name}</span>
+                  <span className="account-icon">My account</span>
                 </Link>
-                <button className="account-link" onClick={() => { logout(); }}>
-                  <span className="account-icon">Logout</span>
+                <button className="logout-button" onClick={() => { logout(); }}>
+                  Logout
                 </button>
-              </>
+              </div>
             
             ) : (
               <a href="http://localhost:3000/api/auth/google" className="account-link" onClick={closeMenu}>
@@ -81,11 +81,11 @@ export const Header = () => {
               {isLoading ? (
                 <span>Loading...</span>
               ) : isAuthenticated ? (
-                <>
+                <div className="mobile-auth-container">
                   <Link to="/account" onClick={closeMenu}>My Account</Link>
 
-                  <button onClick={() => { logout(); closeMenu(); }}>Logout</button>
-                </>
+                  <button type="button" className="mobile-logout-button" onClick={() => { logout(); closeMenu(); }}>Logout</button>
+                </div>
               ) : (
                 <a href="http://localhost:3000/api/auth/google" onClick={closeMenu}>Sign In</a>
               )}
