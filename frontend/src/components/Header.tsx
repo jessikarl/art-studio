@@ -5,7 +5,7 @@ import "../styles/_header.scss";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, isAuthenticated, isLoading, logout } = useAuth();
+  const { isAuthenticated, isLoading, logout } = useAuth();
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
