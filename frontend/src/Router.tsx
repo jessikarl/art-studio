@@ -8,6 +8,7 @@ import { Gallery } from "./pages/Gallery";
 import { Product } from "./pages/Product";
 import { Cart } from "./components/Cart";
 import { Account } from "./pages/Account";
+import { ProtectedRoute } from "./components/protectedRoute";
 
 
 export const router = createBrowserRouter([
@@ -41,8 +42,13 @@ export const router = createBrowserRouter([
         element: <Cart />,
       },
       {
-        path: "/account",
-        element: <Account />,
+        element: <ProtectedRoute/>,
+        children: [
+          {
+            path: "/account",
+            element: <Account />,
+          }
+        ]
       },
     ],
   },
