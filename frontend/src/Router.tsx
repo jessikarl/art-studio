@@ -7,6 +7,7 @@ import { About } from "./pages/About";
 import { Gallery } from "./pages/Gallery";
 import { Product } from "./pages/Product";
 import { Cart } from "./components/Cart";
+import { Account } from "./pages/Account";
 
 
 export const router = createBrowserRouter([
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/account",
+        element: <Account />,
       },
     ],
   },
