@@ -8,7 +8,8 @@ import { Gallery } from "./pages/Gallery";
 import { Product } from "./pages/Product";
 import { Cart } from "./components/Cart";
 import { Account } from "./pages/Account";
-import { ProtectedRoute } from "./components/protectedRoute";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { Success } from "./pages/Success";
 
 
 export const router = createBrowserRouter([
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
             element: <Account />,
           }
         ]
+      },
+      {
+        path: "/success",
+        element: <Success />,
       },
     ],
   },
