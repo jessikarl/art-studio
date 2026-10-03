@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { cosmic, type Artwork } from '../services/cosmic';
-import { useCart } from './../context/cartContext';
+// import { useCart } from './../context/cartContext';
 import '../styles/_gallery.scss';
+import { Link } from 'react-router';
 
 export const Art = () => {
   const [artworks, setArtworks] = useState<Artwork[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { addToCart } = useCart();
+  // const { addToCart } = useCart();
 
   useEffect(() => {
     const getArtworks = async () => {
@@ -37,32 +38,35 @@ export const Art = () => {
   }
 
   return (
-    <section className="gallery">
+    <section className="gallery-container">
+      
       {artworks.map((art) => (
         <div key={art.id} className="art-card">
-          {art.metadata?.image && (
-            <img 
-              src={art.metadata.image.imgix_url} 
-              alt={art.title} 
-              className="art-image"
-            />
-          )}
-
-          <div className="art-info">
-            <h3>{art.title}</h3>
-            
-            <p className="art-meta">
-              {art.metadata?.medium} - {art.metadata?.dimensions}
-            </p>
-
-            {art.metadata?.price && (
-              <span className="art-price">{art.metadata.price} kr</span>
+          <Link to={`/product/${art.id}`} className='art-product-link'>
+            {art.metadata?.image && (
+              <img 
+                src={art.metadata.image.imgix_url} 
+                alt={art.title} 
+                className="art-image"
+              />
             )}
-          </div>
 
-          <div className='art-cart-button'>
-            <button onClick={() => addToCart(art)}>Add to Cart</button>
-          </div>  
+            <div className="art-info">
+              <h3>{art.title}</h3>
+              
+              {/* <p className="art-meta">
+                {art.metadata?.medium} - {art.metadata?.dimensions}
+              </p> */}
+
+              {art.metadata?.price && (
+                <span className="art-price">{art.metadata.price} kr</span>
+              )}
+            </div>
+
+            {/* <div className='art-cart-button'>
+              <button onClick={() => addToCart(art)}>Add to Cart</button>
+            </div> */}
+          </Link>
         </div>
       ))}
     </section>
