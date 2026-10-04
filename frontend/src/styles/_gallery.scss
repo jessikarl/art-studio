@@ -1,0 +1,64 @@
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 3rem 2rem;
+
+    .gallery-header {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-bottom: 1rem;
+
+        h1 {
+            font-family: 'playfair-display', serif;
+            font-style: italic;
+            font-size: 2.5rem;
+            color: #000000;
+            margin: 0;
+        }
+    }
+
+    .art-card {
+        display: block;
+
+        .art-product-link {
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+
+                .art-info h3 {
+                    color: #a8947b;
+                }
+            }
+        }
+
+        .art-image {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .art-info {
+            text-align: center;
+
+            h3 {
+                font-family: 'playfair-display', serif;
+                font-size: 1.2rem;
+                color: #000000;
+                margin: 0 0 0.5rem 0;
+                transition: color 0.3s ease;
+            }
+
+            .art-price {
+                font-size: 1rem;
+                color: #000000;
+            }
+        }
+    }
+}
