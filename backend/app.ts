@@ -4,6 +4,7 @@ import session from 'express-session';
 import passport from './config/passport';
 import checkoutRoutes from './routes/checkoutRoutes';
 import { testDatabaseConnection } from './models/Database';
+import orderRoutes from './routes/orderRoutes';
 
 const app = express();
 
@@ -29,6 +30,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/api/checkout', checkoutRoutes);
+
+app.use('/api/orders', orderRoutes);
 
 app.get('/api/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
