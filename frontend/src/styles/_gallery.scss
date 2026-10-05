@@ -6,6 +6,12 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 3rem 2rem;
 
+    @media (max-width: 768px) {
+        padding: 2rem 1rem;
+        grid-template-columns: 1fr;
+        gap: 2rem 1 rem;
+    }
+
     .gallery-header {
         grid-column: 1 / -1;
         text-align: center;

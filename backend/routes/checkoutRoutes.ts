@@ -1,8 +1,10 @@
 import { Router } from 'express';
-import { createCheckoutSession } from '../controllers/checkoutController';
+import { createCheckoutSession, verifyAndSaveOrder } from '../controllers/checkoutController';
 
 const router = Router();
 
 router.post('/', createCheckoutSession);
+
+router.post('/verify-order', verifyAndSaveOrder);
 
 export default router;
