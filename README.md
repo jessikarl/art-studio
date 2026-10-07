@@ -73,9 +73,17 @@ npm run dev
 ```
 
 ## Requirements 
-1. *
-2. *
-3. *
+1. Koppling till en betallösning
+2. Inloggning via OAuth, Google eller liknande tillämpas.
+3. En egendesignat databas med minst två tabeller. Ska vara normaliserad till lämplig nivå
+och lämpliga constraints i form av foreign keys etc. används
+4. Minst ett externt system används via ett API. JSON, XML eller något annat format som
+läses och/eller skrivs. En embed är inte tillräckligt.
+5. Routing och snygga url:er. Alla anrop går via en dispatcher (index.php) och controllers
+hanterar url-strukturen. Eller liknande, inga anrop till specifika .php-filer.
+6. Front end utan omladdningar av sida. Innehåll hämtas samt skrivs till databasen genom
+json eller xml via JavaScript. Vissa omladdningar får göras, mellan delar av tjänsten.
+Jämför med ”Skriva poster på Facebook”.
 
 
 
