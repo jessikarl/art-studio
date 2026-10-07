@@ -5,6 +5,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+// Configure Passport to use Google OAuth 2.0 strategy
+// This strategy handles the verification and links the Google profile to our MySQL database.
+
 passport.use(
   new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID as string,
@@ -35,9 +38,13 @@ passport.use(
   })
 );
 
+//serializeUser determines what data is saved in the session, save the user id to the session
 passport.serializeUser((user: any, done) => {
   done(null, user.id);
 });
+
+//deserializeUser retrieves the user data from the database using the id stored in the session
+//need to ensure that the user is authenticated and authorized to view their account information
 
 passport.deserializeUser(async (id: number, done) => {
   try {

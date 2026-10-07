@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+//initialize stripe and cosmic using variables for security.
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 const cosmic = createBucketClient({
   bucketSlug: process.env.VITE_BUCKET_SLUG || '',
@@ -26,6 +27,8 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
 
     
     let totalAmount = 0;
+
+    // format the items to match Stripe's expected structure and calculate the total amount
     const lineItems = realArtworks.map((artwork: any) => {
 
       const priceInCents = Math.round(artwork.metadata.price * 100);
@@ -60,6 +63,8 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
 
     const orderId = orderResult.insertId; 
 
+    // Insert each artwork into the order_items table
+    // And keeps track of which artworks are associated with which order
     for (const art of realArtworks) {
       await pool.query (
         'INSERT INTO order_items (order_id, artwork_id, price_at_purchase) VALUES (?, ?, ?) ',
@@ -74,6 +79,7 @@ export const createCheckoutSession = async (req: Request, res: Response) => {
   }
 };
 
+// verifies the payment status of the order and updates the order status in the database accordingly
 export const verifyAndSaveOrder = async (req: Request, res: Response) => {
   try {
     const {sessionId} = req.body;

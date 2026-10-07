@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import pool from "../models/Database";
 
+//Get all orders for a specific user
+//Need to ensure that the user is authenticated and authorized to view their own orders
 export const getUserOrders = async (req: Request, res: Response) => {
     const userId = (req as any).user?.id;
 
